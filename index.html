@@ -1084,19 +1084,56 @@
     line-height: 1.7;
     margin-bottom: 48px;
   }
-  .calendly-placeholder {
+  .contact-form {
     background: var(--black-2);
     border: 1px solid var(--border);
-    padding: 60px 40px;
+    padding: 40px;
     border-radius: 4px;
-    text-align: center;
-    color: var(--white-dim);
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-align: left;
   }
-  /* INSTRUKCE: Nahraď .calendly-placeholder za Calendly inline widget */
+  .form-row { margin-bottom: 20px; }
+  .form-row label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .form-row input,
+  .form-row textarea {
+    width: 100%;
+    background: var(--black-3);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    padding: 12px 14px;
+    transition: border-color 0.2s;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .form-row textarea { resize: vertical; min-height: 80px; }
+  .contact-form .btn-primary {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .contact-form .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-status {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+  }
+  .form-status.success { color: #5FE3A0; }
+  .form-status.error { color: #C4615A; }
+  /* INSTRUKCE: Doplň MAKE_WEBHOOK_URL v JS kódu na konci stránky */
 
   /* ── FOOTER ── */
   footer {
@@ -1909,19 +1946,32 @@
   </div>
 </section>
 
-<!-- ── CTA / CALENDLY ── -->
+<!-- ── CTA / FORMULÁŘ ── -->
 <section id="cta">
   <div class="container">
     <div class="cta-inner">
       <h2 class="cta-h2 reveal">Video ukázku můžete mít<br><em>už do 48 hodin zcela zdarma.</em></h2>
-      <p class="cta-sub reveal">Rezervujte si 20minutový hovor, na základě kterého vám pošleme hotový klip z vašeho vlastního videa. Bez závazků. Prostě jen tak – na zkoušku.</p>
-      <!-- INSTRUKCE: Nahraď níže za Calendly inline embed widget -->
-      <div class="calendly-placeholder reveal">
-        Vlož Calendly inline widget<br>
-        <span style="font-size: 12px; opacity: 0.5; text-transform: none; letter-spacing: 0; margin-top: 8px; display: block;">
-          Calendly → Share → Add to website → Inline Widget → zkopíruj kód a vlož sem
-        </span>
-      </div>
+      <p class="cta-sub reveal">Napište nám pár základních údajů a ozveme se vám s termínem krátkého hovoru a hotovou ukázkou z vašeho vlastního videa. Bez závazků. Prostě jen tak – na zkoušku.</p>
+      <form class="contact-form reveal" id="contact-form">
+        <div class="form-row">
+          <label for="cf-name">Jméno *</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-email">E-mail *</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-phone">Telefon</label>
+          <input type="tel" id="cf-phone" name="phone">
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Link na vaše YouTube video (nebo zpráva)</label>
+          <textarea id="cf-message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="cf-submit">Odeslat →</button>
+        <p class="form-status" id="cf-status"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -1942,7 +1992,7 @@
         <div class="footer-col-links">
           <a href="mailto:info@attency.cz">info@attency.cz</a>
           <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-          <a href="#cta">Rezervovat hovor</a>
+          <a href="#cta">Napsat nám</a>
         </div>
       </div>
 
@@ -2030,6 +2080,48 @@
   }
 
   renderPricing();
+
+  // ══════════════════════════════════════════════
+  // KONTAKTNÍ FORMULÁŘ — odesílá data na webhook (Make.com, Zapier, vlastní endpoint...)
+  // INSTRUKCE: nahraď text níže za skutečnou webhook URL z Make.com (Webhooks → Custom webhook)
+  // ══════════════════════════════════════════════
+  const MAKE_WEBHOOK_URL = 'SEM_VLOZ_WEBHOOK_URL';
+
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const statusEl = document.getElementById('cf-status');
+    const submitBtn = document.getElementById('cf-submit');
+    const payload = {
+      name: document.getElementById('cf-name').value,
+      email: document.getElementById('cf-email').value,
+      phone: document.getElementById('cf-phone').value,
+      message: document.getElementById('cf-message').value,
+      submitted_at: new Date().toISOString()
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Odesílám...';
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+
+    try {
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error('Webhook error');
+      statusEl.textContent = 'Děkujeme! Ozveme se vám do 24 hodin.';
+      statusEl.className = 'form-status success';
+      document.getElementById('contact-form').reset();
+    } catch (err) {
+      statusEl.textContent = 'Něco se nepovedlo. Napište nám prosím přímo na info@attency.cz.';
+      statusEl.className = 'form-status error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Odeslat →';
+    }
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
