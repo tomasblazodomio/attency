@@ -494,6 +494,12 @@
     font-size: 13px;
   }
   .about-photo-placeholder svg { width: 36px; opacity: 0.3; }
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
   .about-photo::after {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -1252,7 +1258,7 @@
     .phone-glow { width: 240px; height: 380px; }
 
     /* About foto */
-    .about-photo { aspect-ratio: 4/3; max-height: 280px; }
+    .about-photo { aspect-ratio: 3/4; max-height: 420px; }
 
     /* Pricing */
     .price-card { padding: 28px 22px; }
