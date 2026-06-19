@@ -1475,12 +1475,17 @@
       </div>
       <div>
         <!-- INSTRUKCE: Nahraď obsah níže za Vimeo nebo Loom <iframe> embed -->
-        <div class="demo-video-frame reveal">
-          <div class="play-btn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <p class="video-label">Ukázkové demo video</p>
-          <p style="font-size: 12px; color: var(--white-dim); text-align: center; padding: 0 20px; margin-top: 4px;">Vlož Vimeo nebo Loom embed</p>
+        <div class="demo-video-frame reveal" style="padding:0; overflow:hidden; background:#000;">
+          <iframe
+            src="https://www.youtube.com/embed/xEeVSq0MUKE"
+            title="Attency demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="width:100%; height:100%; min-height:500px; display:block;">
+          </iframe>
+        </div>
+        <!-- REMOVED OLD PLACEHOLDER Vimeo nebo Loom embed</p>
         </div>
       </div>
     </div>
