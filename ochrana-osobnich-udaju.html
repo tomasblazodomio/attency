@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ochrana osobních údajů — Attency</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080808; --gold: #C9A057; --gold-dim: #8a6d38;
+      --text: #E8E0D0; --muted: #9a9080; --border: rgba(201,160,87,0.18);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(1.5rem,5vw,4rem); height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; text-transform: uppercase; }
+    .nav-back { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+    .page-wrapper { max-width: 760px; margin: 0 auto; padding: clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,2.5rem) 6rem; }
+    .page-header { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; margin-bottom: 3rem; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3rem); font-weight: 500; letter-spacing: 0.04em; color: var(--text); line-height: 1.15; margin-bottom: 0.75rem; }
+    .page-header .meta { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .page-header .meta span { color: var(--gold-dim); margin: 0 0.5rem; }
+    .vop-section { margin-bottom: 3rem; }
+    .vop-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; letter-spacing: 0.04em; color: var(--gold); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .vop-section p { font-size: 0.95rem; color: var(--text); margin-bottom: 0.9rem; opacity: 0.88; }
+    .vop-section p:last-child { margin-bottom: 0; }
+    .article { margin-bottom: 0.9rem; font-size: 0.95rem; opacity: 0.88; }
+    .article-num { color: var(--gold-dim); font-weight: 500; margin-right: 0.4rem; font-size: 0.8rem; }
+    .info-box { background: rgba(201,160,87,0.07); border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; font-size: 0.88rem; color: var(--muted); }
+    .info-box strong { color: var(--gold); }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+    th { text-align: left; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
+    td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(201,160,87,0.08); color: var(--text); opacity: 0.85; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .legal-footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); text-align: center; line-height: 1.6; }
+    .legal-footer a { color: var(--gold-dim); text-decoration: none; }
+    .legal-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Attency</a>
+  <a href="/" class="nav-back">← Zpět na hlavní stránku</a>
+</nav>
+
+<div class="page-wrapper">
+
+  <header class="page-header">
+    <h1>Zásady ochrany osobních údajů</h1>
+    <p class="meta">Attency <span>·</span> Účinné od 19. 6. 2026 <span>·</span> Verze 1.0</p>
+  </header>
+
+  <section class="vop-section">
+    <h2>1. Správce osobních údajů</h2>
+    <div class="info-box">
+      <strong>Tomáš Blažo</strong><br />
+      IČO: 24392758<br />
+      Sídlo: Uralská 689/7, Praha<br />
+      E-mail: info@attency.cz<br />
+      Web: attency.cz
+    </div>
+    <p class="article"><span class="article-num">1.1</span> Tomáš Blažo, IČO 24392758, je správcem osobních údajů ve smyslu čl. 4 odst. 7 nařízení GDPR. Jako správce určuje účely a prostředky zpracování osobních údajů.</p>
+    <p class="article"><span class="article-num">1.2</span> V otázkách ochrany osobních údajů nás kontaktujte na info@attency.cz.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>2. Jaké údaje zpracováváme a proč</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Účel</th>
+          <th>Kategorie údajů</th>
+          <th>Právní základ</th>
+          <th>Doba uchování</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vyřízení poptávky přes kontaktní formulář</td>
+          <td>Jméno, e-mail, telefon, text zprávy</td>
+          <td>Čl. 6 odst. 1 písm. b) GDPR — kroky před uzavřením smlouvy</td>
+          <td>3 roky od posledního kontaktu</td>
+        </tr>
+        <tr>
+          <td>Plnění smlouvy (fakturace, komunikace)</td>
+          <td>Jméno/název firmy, e-mail, adresa, IČO</td>
+          <td>Čl. 6 odst. 1 písm. b) GDPR — plnění smlouvy</td>
+          <td>10 let (zákonná povinnost archivace)</td>
+        </tr>
+        <tr>
+          <td>Zákonné povinnosti (daňové doklady)</td>
+          <td>Fakturační údaje</td>
+          <td>Čl. 6 odst. 1 písm. c) GDPR — zákonná povinnost</td>
+          <td>10 let</td>
+        </tr>
+        <tr>
+          <td>Oprávněný zájem — ochrana práv správce</td>
+          <td>Komunikační záznamy</td>
+          <td>Čl. 6 odst. 1 písm. f) GDPR — oprávněný zájem</td>
+          <td>3 roky od ukončení spolupráce</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="article"><span class="article-num">2.1</span> Nezpracováváme zvláštní kategorie osobních údajů (citlivé údaje) ve smyslu čl. 9 GDPR.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>3. Příjemci a zpracovatelé</h2>
+    <p class="article"><span class="article-num">3.1</span> Vaše údaje předáváme pouze důvěryhodným zpracovatelům, kteří jsou vázáni odpovídajícími smlouvami o zpracování:</p>
+    <table>
+      <thead>
+        <tr><th>Zpracovatel</th><th>Účel</th><th>Sídlo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Make.com (Celonis SE)</td>
+          <td>Automatizace — přeposlání formulářových dat</td>
+          <td>EU / USA (Standard Contractual Clauses)</td>
+        </tr>
+        <tr>
+          <td>SendGrid (Twilio Inc.)</td>
+          <td>Doručení e-mailových notifikací</td>
+          <td>USA (Standard Contractual Clauses)</td>
+        </tr>
+        <tr>
+          <td>GitHub Inc.</td>
+          <td>Hosting webu (GitHub Pages)</td>
+          <td>USA (Standard Contractual Clauses)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="article"><span class="article-num">3.2</span> Správce neprodává ani nepronajímá osobní údaje třetím stranám za marketingovými účely.</p>
+    <p class="article"><span class="article-num">3.3</span> Předání mimo EU probíhá výhradně na základě standardních smluvních doložek dle čl. 46 odst. 2 písm. c) GDPR.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>4. Cookies</h2>
+    <p class="article"><span class="article-num">4.1</span> Web attency.cz nepoužívá analytické ani marketingové cookies třetích stran. Stránka může využívat technické prostředky nezbytné pro základní funkčnost (bez ukládání osobních údajů).</p>
+    <p class="article"><span class="article-num">4.2</span> Pokud by se používání cookies změnilo, budete o tom informováni aktualizací těchto zásad.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>5. Vaše práva</h2>
+    <p class="article"><span class="article-num">5.1</span> Jako subjekt údajů máte tato práva, která můžete uplatnit na info@attency.cz:</p>
+    <p class="article"><span class="article-num">5.2</span> <strong>Právo na přístup</strong> — máte právo vědět, zda zpracováváme vaše osobní údaje, a získat jejich kopii.</p>
+    <p class="article"><span class="article-num">5.3</span> <strong>Právo na opravu</strong> — máte právo požádat o opravu nepřesných nebo doplnění neúplných údajů.</p>
+    <p class="article"><span class="article-num">5.4</span> <strong>Právo na výmaz</strong> — máte právo na výmaz údajů, pokud odpadl účel zpracování nebo odvoláte souhlas (je-li souhlas právním základem), a neexistuje jiný zákonný důvod pro jejich uchování.</p>
+    <p class="article"><span class="article-num">5.5</span> <strong>Právo na omezení zpracování</strong> — máte právo požádat o omezení zpracování v případech stanovených čl. 18 GDPR.</p>
+    <p class="article"><span class="article-num">5.6</span> <strong>Právo na přenositelnost</strong> — máte právo získat své údaje ve strukturovaném, strojově čitelném formátu.</p>
+    <p class="article"><span class="article-num">5.7</span> <strong>Právo vznést námitku</strong> — máte právo vznést námitku proti zpracování na základě oprávněného zájmu (čl. 21 GDPR).</p>
+    <p class="article"><span class="article-num">5.8</span> <strong>Právo podat stížnost</strong> — máte právo podat stížnost u dozorového úřadu: Úřad pro ochranu osobních údajů (ÚOOÚ), Pplk. Sochora 27, 170 00 Praha 7, <a href="https://www.uoou.cz" style="color:var(--gold)">www.uoou.cz</a>.</p>
+    <p class="article"><span class="article-num">5.9</span> Na vaši žádost odpovíme bez zbytečného odkladu, nejpozději do 30 dnů.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>6. Zabezpečení</h2>
+    <p class="article"><span class="article-num">6.1</span> Správce přijal přiměřená technická a organizační opatření k ochraně osobních údajů před neoprávněným přístupem, ztrátou nebo zničením, zejm. šifrování přenosu dat (HTTPS) a omezení přístupu k údajům.</p>
+  </section>
+
+  <section class="vop-section">
+    <h2>7. Změny těchto zásad</h2>
+    <p class="article"><span class="article-num">7.1</span> Tyto zásady mohou být průběžně aktualizovány. Aktuální verze je vždy dostupná na attency.cz/ochrana-osobnich-udaju.html. Datum poslední aktualizace je uvedeno v záhlaví dokumentu.</p>
+  </section>
+
+</div>
+
+<footer class="legal-footer">
+  <p>© 2026 Tomáš Blažo — Attency &nbsp;·&nbsp; IČO 24392758</p>
+  <p style="margin-top:0.4rem;">
+    <a href="/">Hlavní stránka</a>
+    &nbsp;·&nbsp;
+    <a href="/ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
+    &nbsp;·&nbsp;
+    <a href="/obchodni-podminky.html">Obchodní podmínky</a>
+  </p>
+</footer>
+
+</body>
+</html>
